@@ -1,0 +1,1 @@
+# example of customize standalone-openshift.xml by S2I buildThis example is tested on EAP7.2.1 and OCP 3.11.How to deploy:```oc new-app --template=eap72-basic-s2i -p APPLICATION_NAME=helloworld-custom-datasource -p SOURCE_REPOSITORY_URL=https://github.com/nagetsum/jboss-openshift-examples.git -p SOURCE_REPOSITORY_REF=master -p CONTEXT_DIR=helloworld-custom-datasource```
