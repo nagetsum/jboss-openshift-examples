@@ -1,7 +1,7 @@
 # Getting Started RHOAR Spring Boot
 
 - RHOAR Spring Boot 2.1.3.Final-redhat-00001
-- OpenJDK 11
+- OpenJDK 8
 
 How to build and launch:
 ```
