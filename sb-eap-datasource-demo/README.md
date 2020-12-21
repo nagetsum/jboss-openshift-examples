@@ -47,6 +47,6 @@ metadata:
 +          value: "testpass"
 
 
-$ $ curl -k https://<router-host>/sb-eap-datasource-demo-0.0.1-SNAPSHOT/books/1
+$ curl -k https://<router-host>/sb-eap-datasource-demo-0.0.1-SNAPSHOT/books/1
 {"id":1,"title":"Linux book","author":"Shadowman"}
 ```
