@@ -8,13 +8,33 @@ Environments
 
 How to deploy this demo application:
 ```
-// Deploy PostgreSQL12
+// 1. Install latest Template and ImageSteam for JBoss EAP 7.3 with OpenJDK8
+$ oc project openshift
+$ for resource in \
+>   eap73-amq-persistent-s2i.json \
+>   eap73-amq-s2i.json \
+>   eap73-basic-s2i.json \
+>   eap73-https-s2i.json \
+>   eap73-image-stream.json \
+>   eap73-sso-s2i.json \
+>   eap73-starter-s2i.json \
+>   eap73-third-party-db-s2i.json \
+>   eap73-tx-recovery-s2i.json
+> do
+>   oc replace --force -f \
+> https://raw.githubusercontent.com/jboss-container-images/jboss-eap-7-openshift-image/eap73/templates/${resource}
+> done
+
+// 2. Create new project
+$ oc new-project sb-eap-test
+
+// 3. Deploy PostgreSQL12
 $ oc new-app -e POSTGRESQL_USER=test -e POSTGRESQL_PASSWORD=testpass -e POSTGRESQL_DATABASE=test --image-stream=postgresql:12-el8
 
-// Deploy application which is based on Spring Boot 2.4 with JBoss EAP 7.3
+// 4. Deploy application which is based on Spring Boot 2.4 with JBoss EAP 7.3
 $ oc new-app --template eap73-basic-s2i -p APPLICATION_NAME=sb-eap-datasource-demo -p SOURCE_REPOSITORY_URL=https://github.com/nagetsum/jboss-openshift-examples.git -p CONTEXT_DIR=sb-eap-datasource-demo -p SOURCE_REPOSITORY_REF=master
 
-// Add environment variables for DataSource configuration
+// 5. Add environment variables for DataSource configuration
 $ oc edit dc/sb-eap-datasource-demo
 apiVersion: apps.openshift.io/v1
 kind: DeploymentConfig
