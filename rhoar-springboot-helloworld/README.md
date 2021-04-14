@@ -1,6 +1,6 @@
-# Getting Started RHOAR Spring Boot
+# Getting Started Red Hat support for Spring Boot
 
-- RHOAR Spring Boot 2.1.3.Final-redhat-00001
+- Red Hat support for Spring Boot 2.3.6.Final-redhat-00001
 - OpenJDK 11
 
 How to build and launch:

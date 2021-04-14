@@ -13,16 +13,16 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>2.1.6.SP3-redhat-00001</spring-boot.version>
-        <spring-boot-maven-plugin.version>2.1.4.RELEASE-redhat-00001</spring-boot-maven-plugin.version>
+        <spring-boot.version>2.3.6.Final-redhat-00001</spring-boot.version>
+        <spring-boot-maven-plugin.version>2.3.6.RELEASE</spring-boot-maven-plugin.version>
         <java.release.version>11</java.release.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>me.snowdrop</groupId>
-                <artifactId>spring-boot-bom</artifactId>
+                <groupId>dev.snowdrop</groupId>
+                <artifactId>snowdrop-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
