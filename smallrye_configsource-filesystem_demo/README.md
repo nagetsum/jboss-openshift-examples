@@ -1,17 +1,17 @@
-= SmallRye FileSystem Config Source Demo
+# SmallRye FileSystem Config Source Demo
 
 In addition to MP Config's standard ConfigSource of environment variables, java system properties, and the `META-INF/microprofile-config.properties`, SmallRye Config supports ConfigSource in **directory format**.
 
 This Config Source can be used to read configuration from Kubernetes `ConfigMap`.
 
-== Environment
+## Environment
 
 - JBoss EAP 7.4
 - EAP XP 3.0
 - OpenShift 4.10 (note: EAP XP containers does not support OCP3.x)
 - JDK11 (note: EAP XP containers only support JDK11, not JDK8)
 
-== How to deploy
+## How to deploy
 ```
 oc new-project mpconfig-demo
 oc replace --force -f https://raw.githubusercontent.com/jboss-container-images/jboss-eap-openshift-templates/eap-xp3/jboss-eap-xp3-openjdk11-openshift.json
@@ -87,7 +87,7 @@ curl -k https://configmap-demo-mpconfig-demo.apps.nagetsum-sno4.nagetsum.gss.cee
 https://redhat.com/
 ```
 
-== References
+## References
 
 - SmallRye documentation FileSystem Config Source
   - https://smallrye.io/docs/smallrye-config/config-sources/config-sources.html#filesystem-config-source
