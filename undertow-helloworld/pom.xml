@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.release.version>11</java.release.version>
-        <undertow.version>2.0.21.Final</undertow.version>
+        <undertow.version>2.1.6.Final</undertow.version>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
