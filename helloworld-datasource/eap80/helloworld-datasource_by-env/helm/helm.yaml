@@ -1,0 +1,31 @@
+build:
+  uri: https://github.com/nagetsum/jboss-openshift-examples.git
+  ref: master
+  contextDir: helloworld-datasource/eap80/helloworld-datasource_by-env
+deploy:
+  replicas: 1
+  env:
+    - name: JGROUPS_PING_PROTOCOL
+      value: "LOCAL_PING"
+    - name: DB_SERVICE_PREFIX_MAPPING
+      value: "PostgresDS-POSTGRES=DS1"
+    - name: DS1_URL
+      value: "jdbc:postgresql://postgres:5432/postgres?socketTimeout=310"
+    - name: DS1_JNDI
+      value: "java:jboss/datasources/PostgresDS"
+    - name: DS1_DRIVER
+      value: "postgresql"
+    - name: DS1_USERNAME
+      value: "postgres"
+    - name: DS1_PASSWORD
+      value: "postgres"
+    - name: DS1_MAX_POOL_SIZE
+      value: "20"
+    - name: DS1_MIN_POOL_SIZE
+      value: "20"
+    - name: DS1_CONNECTION_CHECKER
+      value: "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker"
+    - name: DS1_EXCEPTION_SORTER
+      value: "org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter"
+    - name: DS1_NONXA
+      value: "true"

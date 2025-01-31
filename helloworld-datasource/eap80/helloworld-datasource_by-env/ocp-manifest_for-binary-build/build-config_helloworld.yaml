@@ -1,0 +1,36 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    application: helloworld-datasource
+  name: helloworld-datasource
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: helloworld-datasource:latest
+  source:
+    dockerfile: |-
+      FROM registry.redhat.io/jboss-eap-8/eap8-openjdk17-runtime-openshift-rhel8:1.0.1.GA-10
+      COPY --chown=jboss:root /server $JBOSS_HOME
+      RUN chmod -R ug+rwX $JBOSS_HOME
+    images:
+    - from:
+        kind: ImageStreamTag
+        name: helloworld-datasource-build-artifacts:latest
+      paths:
+      - destinationDir: .
+        sourcePath: /opt/server
+  strategy:
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: registry.redhat.io/jboss-eap-8/eap8-openjdk17-runtime-openshift-rhel8:1.0.1.GA-10
+    type: Docker
+  triggers:
+  - imageChange:
+      from:
+        kind: ImageStreamTag
+        name: helloworld-datasource-build-artifacts:latest
+    type: ImageChange
+  - type: ConfigChange
