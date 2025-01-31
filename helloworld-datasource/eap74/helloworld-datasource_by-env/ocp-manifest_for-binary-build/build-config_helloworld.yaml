@@ -29,7 +29,7 @@ spec:
       from:
         kind: ImageStreamTag
         name: jboss-eap74-openjdk17-runtime-openshift:7.4
-        namespace: eap7-demo 
+        namespace: eap74-demo 
       imageOptimizationPolicy: SkipLayers
     type: Docker
   triggers:
