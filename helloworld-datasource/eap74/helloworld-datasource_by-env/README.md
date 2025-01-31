@@ -18,8 +18,8 @@ oc create -f https://raw.githubusercontent.com/jboss-container-images/jboss-eap-
 oc new-build jboss-eap74-openjdk17-openshift:7.4 --binary=true --name=helloworld-datasource-build-artifacts -e GALLEON_PROVISION_DEFAULT_FAT_SERVER="true"
 
 oc start-build helloworld-datasource-build-artifacts --from-dir=./jboss-openshift-examples/helloworld-datasource/eap74/helloworld-datasource_by-env/ --follow
-oc create -f ocp-manifest_for-binary-build/imagesteam_helloworld.yaml
-oc create -f ocp-manifest_for-binary-build/build-config_helloworld.yaml
+oc create -f jboss-openshift-examples/helloworld-datasource/eap74/helloworld-datasource_by-env/ocp-manifest_for-binary-build/imagesteam_helloworld.yaml
+oc create -f jboss-openshift-examples/helloworld-datasource/eap74/helloworld-datasource_by-env/ocp-manifest_for-binary-build//build-config_helloworld.yaml
 oc start-build helloworld-datasource
 oc new-app helloworld-datasource -l app.openshift.io/runtime=jboss --env-file=jboss-openshift-examples/helloworld-datasource/eap74/helloworld-datasource_by-env/envfile_for_funtime/datasource.env -e JGROUPS_PING_PROTOCOL=LOCAL_PING
 ```
