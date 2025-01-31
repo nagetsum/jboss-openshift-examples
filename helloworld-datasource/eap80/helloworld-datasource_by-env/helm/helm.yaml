@@ -5,8 +5,6 @@ build:
 deploy:
   replicas: 1
   env:
-    - name: JGROUPS_PING_PROTOCOL
-      value: "LOCAL_PING"
     - name: DB_SERVICE_PREFIX_MAPPING
       value: "PostgresDS-POSTGRES=DS1"
     - name: DS1_URL
