@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- for container enviroment -->
+        <Console name="CONSOLE">
+            <JsonTemplateLayout eventTemplateUri="classpath:LogstashJsonEventLayoutV1.json"/>
+        </Console>
+
+        <!-- for bare metal or virtual machine environment -->
+        <!--
+        <Console name="CONSOLE">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%c] (%t) %msg%n"/>
+        </Console>
+        <RollingFile name="FILE"
+                     filePattern="${sys:jboss.server.log.dir}/application.%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%c] (%t) %msg%n"/>
+            <DirectWriteRolloverStrategy>
+                <Delete basePath="${sys:jboss.server.log.dir}">
+                    <IfFileName regex="application\.\d{4}-\d{2}-\d{2}\.log\.gz"/>
+                    <IfLastModified age="3d"/>  <<<=== delete application.yyyy-MM-dd.log.gz older than 3 days
+                </Delete>
+            </DirectWriteRolloverStrategy>
+            <TimeBasedTriggeringPolicy/>
+        </RollingFile>
+    -->
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="CONSOLE"/>
+            <!--
+            <AppenderRef ref="FILE"/>
+            -->
+        </Root>
+    </Loggers>
+</Configuration>
