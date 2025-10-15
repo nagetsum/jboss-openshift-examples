@@ -9,11 +9,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <version.bom.eap>8.1.0.SP1-redhat-00003</version.bom.eap> <!-- JBoss EAP 8.1.0.1 -->
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <version.eap.maven.plugin>2.0.0.Final-redhat-00009</version.eap.maven.plugin>
         <version.eap.channel>1.0.1.GA-redhat-00005</version.eap.channel> <!-- see https://access.redhat.com/articles/7039745 -->
+        <version.plugin.war>3.4.0</version.plugin.war>
     </properties>
 
     <dependencies>
@@ -54,6 +56,15 @@
 
     <build>
         <finalName>ROOT</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${version.plugin.war}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
     <profiles>
